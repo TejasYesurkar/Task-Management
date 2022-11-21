@@ -6,18 +6,18 @@ import androidx.lifecycle.LiveData
 
 class TasksViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val repository = NoteRepository(app)
+    private val repository = TaskRepository(app)
     private val allTaskss = repository.getAllNotes()
 
-    fun insert(Tasks: Note) {
+    fun insert(Tasks: Task) {
         repository.insert(Tasks)
     }
 
-    fun update(Tasks: Note) {
+    fun update(Tasks: Task) {
         repository.update(Tasks)
     }
 
-    fun delete(Tasks: Note) {
+    fun delete(Tasks: Task) {
         repository.delete(Tasks)
     }
 
@@ -25,7 +25,7 @@ class TasksViewModel(app: Application) : AndroidViewModel(app) {
         repository.deleteAllNotes()
     }
 
-    fun getAllTasks(): LiveData<List<Note>> {
+    fun getAllTasks(): LiveData<List<Task>> {
         return allTaskss
     }
 

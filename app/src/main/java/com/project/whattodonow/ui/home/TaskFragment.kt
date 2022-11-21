@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.retrofit_kotlin.ApiInterface
 import com.project.retrofit_kotlin.MyDataItem
-import com.project.roomdbkotlin.db.NoteViewModel
+import com.project.roomdbkotlin.db.TaskViewModel
 import com.project.whattodonow.databinding.FragmentTaskBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class TaskFragment : Fragment() {
-    private lateinit var vm: NoteViewModel
+    private lateinit var vm: TaskViewModel
     private var _binding: FragmentTaskBinding? = null
 
     private val binding get() = _binding!!
@@ -31,7 +29,6 @@ class TaskFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
 
         _binding = FragmentTaskBinding.inflate(inflater, container, false)
         val root: View = binding.root

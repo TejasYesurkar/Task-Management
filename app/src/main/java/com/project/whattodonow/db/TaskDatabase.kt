@@ -6,18 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Note::class], version = 1)
-abstract class NoteDatabase : RoomDatabase() {
+@Database(entities = [Task::class], version = 1)
+abstract class TaskDatabase : RoomDatabase() {
 
-    abstract fun noteDao(): NoteDao
+    abstract fun noteDao(): TaskDao
 
     companion object {
-        private var instance: NoteDatabase? = null
+        private var instance: TaskDatabase? = null
 
         @Synchronized
-        fun getInstance(ctx: Context): NoteDatabase {
+        fun getInstance(ctx: Context): TaskDatabase {
             if(instance == null)
-                instance = Room.databaseBuilder(ctx.applicationContext, NoteDatabase::class.java,
+                instance = Room.databaseBuilder(ctx.applicationContext, TaskDatabase::class.java,
                     "note_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
@@ -34,12 +34,12 @@ abstract class NoteDatabase : RoomDatabase() {
             }
         }
 
-        private fun populateDatabase(db: NoteDatabase) {
+        private fun populateDatabase(db: TaskDatabase) {
             val noteDao = db.noteDao()
 //            subscribeOnBackground {
-                noteDao.insert(Note("title 1", "desc 1", 1))
-                noteDao.insert(Note("title 2", "desc 2", 2))
-                noteDao.insert(Note("title 3", "desc 3", 3))
+                noteDao.insert(Task("title 1", "desc 1", 1))
+                noteDao.insert(Task("title 2", "desc 2", 2))
+                noteDao.insert(Task("title 3", "desc 3", 3))
 
 //            }
         }

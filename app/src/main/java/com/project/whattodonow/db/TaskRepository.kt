@@ -4,47 +4,47 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 
 
-class NoteRepository(application: Application) {
+class TaskRepository(application: Application) {
 
-    private var noteDao: NoteDao
-    private var allNotes: LiveData<List<Note>>
+    private var taskDao: TaskDao
+    private var allNotes: LiveData<List<Task>>
 
-    private val database = NoteDatabase.getInstance(application)
+    private val database = TaskDatabase.getInstance(application)
 
     init {
-        noteDao = database.noteDao()
-        allNotes = noteDao.getAllNotes()
+        taskDao = database.noteDao()
+        allNotes = taskDao.getAllNotes()
     }
 
-    fun insert(note: Note) {
+    fun insert(task: Task) {
 //        Single.just(noteDao.insert(note))
 //            .subscribeOn(Schedulers.io())
 //            .observeOn(AndroidSchedulers.mainThread())
 //            .subscribe()
 //        subscribeOnBackground {
-            noteDao.insert(note)
+            taskDao.insert(task)
 //        }
     }
 
-    fun update(note: Note) {
+    fun update(task: Task) {
 //        subscribeOnBackground {
-            noteDao.update(note)
+            taskDao.update(task)
 //        }
     }
 
-    fun delete(note: Note) {
+    fun delete(task: Task) {
 //        subscribeOnBackground {
-            noteDao.delete(note)
+            taskDao.delete(task)
 //        }
     }
 
     fun deleteAllNotes() {
 //        subscribeOnBackground {
-            noteDao.deleteAllNotes()
+            taskDao.deleteAllNotes()
 //        }
     }
 
-    fun getAllNotes(): LiveData<List<Note>> {
+    fun getAllNotes(): LiveData<List<Task>> {
         return allNotes
     }
 
