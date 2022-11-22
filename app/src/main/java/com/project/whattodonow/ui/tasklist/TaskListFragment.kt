@@ -1,4 +1,4 @@
-package com.project.whattodonow.ui.gallery
+package com.project.whattodonow.ui.tasklist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.project.whattodonow.databinding.FragmentDailyBinding
-import com.project.whattodonow.databinding.FragmentDateReminderBinding
+import com.project.whattodonow.databinding.FragmentTaskBinding
 
+class TaskListFragment : Fragment() {
 
-class DailyReminderFragment : Fragment() {
-
-    private var _binding: FragmentDailyBinding? = null
+    private var _binding: FragmentTaskBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,11 +23,12 @@ class DailyReminderFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val addTask =
-            ViewModelProvider(this).get(DailyReminderViewModel::class.java)
+        val slideshowViewModel =
+            ViewModelProvider(this).get(TaskListViewModel::class.java)
 
-        _binding = FragmentDailyBinding.inflate(inflater, container, false)
+        _binding = FragmentTaskBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         return root
     }

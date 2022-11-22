@@ -9,12 +9,16 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_task" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_date_reminder"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_birthday" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_daily_expense"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_daily" />
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_add_task" />
     </group>
 </menu>

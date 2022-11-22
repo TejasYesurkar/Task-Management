@@ -37,9 +37,9 @@ abstract class TaskDatabase : RoomDatabase() {
         private fun populateDatabase(db: TaskDatabase) {
             val noteDao = db.noteDao()
 //            subscribeOnBackground {
-                noteDao.insert(Task("title 1", "desc 1", 1))
-                noteDao.insert(Task("title 2", "desc 2", 2))
-                noteDao.insert(Task("title 3", "desc 3", 3))
+                noteDao.insert(Task("title 1", "",1))
+                noteDao.insert(Task("title 1", "",2))
+                noteDao.insert(Task("title 1", "",3))
 
 //            }
         }
